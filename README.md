@@ -95,7 +95,7 @@ Don't forget to give the project a star! Thanks again!
 
 ## Demo Screenshot
 
-A walk through video of the application <a href="">here.</a>
+A walk through video of the application <a href="https://drive.google.com/file/d/1Y3LUsluVdHeXFPyeBmCK0DMOXCjWtK1R/view">here.</a>
 
 <img src="./assets/images/demo-screenshot.png" alt="Demo Screenshot" />
 
