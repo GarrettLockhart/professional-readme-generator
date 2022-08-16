@@ -1,7 +1,5 @@
 <!-- https://github.com/othneildrew/Best-README-Template -->
 
-// TODO: add the demo screenshot
-
 <div id="top"></div>
 
 <!-- PROJECT LOGO -->
@@ -44,12 +42,37 @@
 
 ## About The Project
 
-This project was built using node.js and inquirer, it is run from the command line and will prompt you to answer questions using inquirer to the fill out the data of the readme file and even create the file for you, using the node.js file system to handle writing the file.
+This project was built using node.js and inquirer, it is run from the command line and will prompt you to answer questions using the command line to the fill out the data of the readme file and then create the file for you, using the node.js file system to handle writing the file. You can find the generated file in the "generated" folder. Please see the installation instructions for more information.
 
 ### Built With
 
 - [node.js](https://nodejs.org/en/)
 - [Inquirer](https://www.npmjs.com/package/inquirer)
+
+<br />
+<br />
+<br />
+
+## Installation instructions
+
+Once you have the project on your computer you can open it in your command line and run
+
+```
+npm install
+```
+
+After that has finished downloading the node_modules folder you can go back to the command line and run
+
+```
+node index.js
+```
+
+Then answer the questions accordingly and your generated readme file will be output to the "generated folder".
+
+<br />
+<br />
+<br />
+
 <!-- CONTRIBUTING -->
 
 ## Contributing
@@ -69,6 +92,9 @@ Don't forget to give the project a star! Thanks again!
 
 <br />
 <br />
-<img src="" alt="Demo Screenshot" />
+
+## Demo Screenshot
+
+<img src="./assets/images/demo-screenshot.png" alt="Demo Screenshot" />
 
 <p align="right">(<a href="#top">back to top</a>)</p>

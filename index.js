@@ -25,6 +25,9 @@ inquirer
       message: 'Please enter the usage commands for your program:',
       choices: [],
       name: 'usage',
+      filter(val) {
+        return val.toLowerCase();
+      },
     },
     {
       type: 'list',
@@ -47,6 +50,26 @@ inquirer
       type: 'input',
       message: 'Please enter your GitHub username:',
       name: 'github',
+      filter(val) {
+        return val.toLowerCase();
+      },
+    },
+    {
+      type: 'input',
+      message: 'Please enter your email so people can reach you:',
+      name: 'email',
+      default: () => {},
+      validate: function (email) {
+        valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+
+        if (valid) {
+          console.log('\nGreat job');
+          return true;
+        } else {
+          console.log('\nPlease enter a valid email');
+          return false;
+        }
+      },
     },
   ])
   .then((answers) => {
@@ -59,18 +82,20 @@ inquirer
 
 ${licenseBadge.getBadge(userSelection)}
 
-<h1 align="center">**${answers.title}**</h1>
+<h1 align="center" style="font-weight: bold" >${answers.title}</h1>
+
+<br />
+<br />
 
 ---
-<br />
-<br />
 
 ## Description:
 ${answers.description}
 
+<br />
+<br />
+
 ---
-<br />
-<br />
 
 <details>
   <summary>Table of Contents</summary>
@@ -81,49 +106,63 @@ ${answers.description}
   </ol>
 </details>
 
+<br />
+<br />
+
 ---
-<br />
-<br />
 
 ## Installation:
 ${answers.installation}
 
+<br />
+<br />
+
 ---
-<br />
-<br />
 
 ## Usage:
 \`\`\`md\n${answers.usage}\n\`\`\`
 
+<br />
+<br />
+
 ---
-<br />
-<br />
 
 ## License:
 Released under license ${userSelection}
 
+<br />
+<br />
+
 ---
-<br />
-<br />
 
 ## Contributing:
 ${contributeSelect.getContributions(contributions)}
 
+<br />
+<br />
+
 ---
-<br />
-<br />
 
 ## Tests:
 ${answers.test}
 
----
 <br />
 <br />
 
+---
+
 ## Questions:
-Please reach out at <a href="https://github.com/${answers.github}">${
+Please reach out through github at <a href="https://github.com/${
       answers.github
-    }</a>
+    }" target=_blank>${answers.github}</a> or you can email me at ${
+      answers.email
+    }
+
+<br />
+<br />
+    
+---
+
 
     `;
     fs.writeFile(filename, generatedData, (err) =>
