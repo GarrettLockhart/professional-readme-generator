@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-<h1 align="center" style="font-weight: bold" >Test Project</h1>
+<h1 align="center" style="font-weight: bold" >Test project</h1>
 
 <br />
 <br />
@@ -34,7 +34,7 @@ This is a test
 ---
 
 ## Installation:
-Install it
+install it
 
 <br />
 <br />
