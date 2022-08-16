@@ -1,34 +1,81 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
+const licenseBadge = require('./utils/licenseBadge.js');
+const contributeSelect = require('./utils/contributions.js');
 
 inquirer
   .prompt([
     {
       type: 'input',
-      message: 'Please enter the title of yor readme file:',
+      message: 'Please enter the title for your readme file:',
       name: 'title',
     },
     {
       type: 'input',
-      message: 'Please enter a description for you r readme:',
+      message: 'Please enter a description for your readme:',
       name: 'description',
+    },
+    {
+      type: 'input',
+      message: 'Please enter installation instructions for your readme:',
+      name: 'installation',
+    },
+    {
+      type: 'input',
+      message: 'Please enter the usage commands for your program:',
+      choices: [],
+      name: 'usage',
+    },
+    {
+      type: 'list',
+      message: 'Please select the license for your project:',
+      name: 'license',
+      choices: ['MIT', 'GNU GPL v3', 'Creative Commons'],
+    },
+    {
+      type: 'list',
+      message: 'Please select the contributing guidelines for your project:',
+      name: 'contribute',
+      choices: ['Detailed', 'Simple'],
     },
   ])
   .then((answers) => {
-    const filename = 'README2.md';
+    const filename = './generated/README2.md';
+    const userSelection = answers.license;
+    const contributions = answers.contribute;
     const generatedData = `
-# ${answers.title}\n
+${licenseBadge.getBadge(userSelection)}
 
-## Desciption:
+<h1 align="center">${answers.title}\n</h1>
+
+## Description:
 ${answers.description}\n
 
-## Installation
-Git clone this project open the 'index.js' in you terminal of choice run 'node index.js'
-and answer all the questions when prompted, once completed you should see a 'Success'
-print out on the command line, and your README.md file should be created in the same root
-directory.
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#description">About The Project</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#usage">Usage</a></li>
+  </ol>
+</details>
+
+## Installation:
+${answers.installation}
+
+## Usage:
+\`\`\`md\n${answers.usage}\n\`\`\`
+
+## License:
+Released under license ${userSelection}
+
+## Contributing:
+${contributeSelect.getContributions(contributions)}
+
     `;
     fs.writeFile(filename, generatedData, (err) =>
-      err ? console.log(err) : console.log('Success!')
+      err
+        ? console.log(err)
+        : console.log('Success, your file is in the "generated" folder!')
     );
   });
