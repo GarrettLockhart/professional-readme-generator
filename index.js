@@ -43,13 +43,17 @@ inquirer
     const filename = './generated/README2.md';
     const userSelection = answers.license;
     const contributions = answers.contribute;
-    const generatedData = `
+    const generatedData = `\n\n\n
 ${licenseBadge.getBadge(userSelection)}
 
 <h1 align="center">${answers.title}\n</h1>
 
+<hr>
+
 ## Description:
 ${answers.description}\n
+
+<hr>
 
 <details>
   <summary>Table of Contents</summary>
@@ -60,17 +64,27 @@ ${answers.description}\n
   </ol>
 </details>
 
+<hr>
+
 ## Installation:
 ${answers.installation}
+
+<hr>
 
 ## Usage:
 \`\`\`md\n${answers.usage}\n\`\`\`
 
+<hr>
+
 ## License:
 Released under license ${userSelection}
 
+<hr>
+
 ## Contributing:
 ${contributeSelect.getContributions(contributions)}
+
+<hr>
 
     `;
     fs.writeFile(filename, generatedData, (err) =>
