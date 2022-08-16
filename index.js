@@ -63,7 +63,6 @@ inquirer
         valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
 
         if (valid) {
-          console.log('\nGreat job');
           return true;
         } else {
           console.log('\nPlease enter a valid email');
@@ -80,9 +79,24 @@ inquirer
 <br />
 <br />
 
+<div id="top"></div>
+
 ${licenseBadge.getBadge(userSelection)}
 
 <h1 align="center" style="font-weight: bold" >${answers.title}</h1>
+
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#description">Description</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#tests">Tests</a></li>
+    <li><a href="#questions">Questions</a></li>
+  </ol>
+</details>
 
 <br />
 <br />
@@ -91,20 +105,6 @@ ${licenseBadge.getBadge(userSelection)}
 
 ## Description:
 ${answers.description}
-
-<br />
-<br />
-
----
-
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li><a href="#description">About The Project</a></li>
-    <li><a href="#installation">Installation</a></li>
-    <li><a href="#usage">Usage</a></li>
-  </ol>
-</details>
 
 <br />
 <br />
@@ -161,7 +161,7 @@ Please reach out through github at <a href="https://github.com/${
 <br />
 <br />
     
----
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
     `;

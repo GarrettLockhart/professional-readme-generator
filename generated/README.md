@@ -2,9 +2,24 @@
 <br />
 <br />
 
+<div id="top"></div>
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-<h1 align="center" style="font-weight: bold" >Test project</h1>
+<h1 align="center" style="font-weight: bold" >Test Project</h1>
+
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#description">Description</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#tests">Tests</a></li>
+    <li><a href="#questions">Questions</a></li>
+  </ol>
+</details>
 
 <br />
 <br />
@@ -19,22 +34,8 @@ This is a test
 
 ---
 
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li><a href="#description">About The Project</a></li>
-    <li><a href="#installation">Installation</a></li>
-    <li><a href="#usage">Usage</a></li>
-  </ol>
-</details>
-
-<br />
-<br />
-
----
-
 ## Installation:
-install it
+Install it
 
 <br />
 <br />
@@ -78,7 +79,7 @@ Released under license MIT
 ---
 
 ## Tests:
-test it
+Test it
 
 <br />
 <br />
@@ -91,7 +92,7 @@ Please reach out through github at <a href="https://github.com/garrettlockhart" 
 <br />
 <br />
     
----
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
     
