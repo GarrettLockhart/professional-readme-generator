@@ -38,22 +38,39 @@ inquirer
       name: 'contribute',
       choices: ['Detailed', 'Simple'],
     },
+    {
+      type: 'input',
+      message: 'Please enter the test instructions for your project:',
+      name: 'test',
+    },
+    {
+      type: 'input',
+      message: 'Please enter your GitHub username:',
+      name: 'github',
+    },
   ])
   .then((answers) => {
-    const filename = './generated/README2.md';
+    const filename = './generated/README.md';
     const userSelection = answers.license;
     const contributions = answers.contribute;
-    const generatedData = `\n\n\n
+    const generatedData = `<br />
+<br />
+<br />
+
 ${licenseBadge.getBadge(userSelection)}
 
-<h1 align="center">${answers.title}\n</h1>
+<h1 align="center">**${answers.title}**</h1>
 
-<hr>
+---
+<br />
+<br />
 
 ## Description:
-${answers.description}\n
+${answers.description}
 
-<hr>
+---
+<br />
+<br />
 
 <details>
   <summary>Table of Contents</summary>
@@ -64,27 +81,49 @@ ${answers.description}\n
   </ol>
 </details>
 
-<hr>
+---
+<br />
+<br />
 
 ## Installation:
 ${answers.installation}
 
-<hr>
+---
+<br />
+<br />
 
 ## Usage:
 \`\`\`md\n${answers.usage}\n\`\`\`
 
-<hr>
+---
+<br />
+<br />
 
 ## License:
 Released under license ${userSelection}
 
-<hr>
+---
+<br />
+<br />
 
 ## Contributing:
 ${contributeSelect.getContributions(contributions)}
 
-<hr>
+---
+<br />
+<br />
+
+## Tests:
+${answers.test}
+
+---
+<br />
+<br />
+
+## Questions:
+Please reach out at <a href="https://github.com/${answers.github}">${
+      answers.github
+    }</a>
 
     `;
     fs.writeFile(filename, generatedData, (err) =>
